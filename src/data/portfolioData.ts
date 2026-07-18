@@ -188,10 +188,10 @@ export const codingProfiles: CodingProfile[] = [
   },
   {
     name: 'Codolio',
-    username: 'simran2005singh',
+    username: 'simransingh2005',
     solved: 'All Profiles Integrated',
     rating: 'Top 10%',
-    link: 'https://codolio.com',
+    link: 'https://codolio.com/profile/simransingh2005',
     icon: 'FiCode'
   }
 ];
