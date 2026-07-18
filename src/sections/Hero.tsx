@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 import { personalInfo } from '../data/portfolioData';
-import avatarImg from '../assets/developer_avatar.png';
+import avatarImg from '../assets/developer_avatar.jpg';
 
 export default function Hero({ isDark }: { isDark: boolean }) {
 
