@@ -24,8 +24,8 @@ export default function Contact({ isDark }: { isDark: boolean }) {
     },
     {
       name: 'LinkedIn',
-      value: 'simran-singh',
-      href: 'https://linkedin.com',
+      value: 'simran-singh-921a83295',
+      href: 'https://www.linkedin.com/in/simran-singh-921a83295/',
       icon: FiLinkedin,
       color: 'text-violet-500',
     },

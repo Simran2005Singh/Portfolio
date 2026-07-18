@@ -74,7 +74,7 @@ export const personalInfo = {
 
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/simran2005singh', icon: 'FiGithub' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'FiLinkedin' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/simran-singh-921a83295/', icon: 'FiLinkedin' },
   { name: 'LeetCode', url: 'https://leetcode.com', icon: 'SiLeetcode' },
 ];
 

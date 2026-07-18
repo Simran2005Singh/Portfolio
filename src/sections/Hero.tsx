@@ -124,7 +124,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/simran-singh-921a83295/"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-6 py-3.5 text-sm font-semibold rounded-2xl border transition-all duration-300 flex items-center gap-2 cursor-pointer ${
