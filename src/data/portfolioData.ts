@@ -187,6 +187,14 @@ export const codingProfiles: CodingProfile[] = [
     icon: 'SiLeetcode'
   },
   {
+    name: 'GitHub',
+    username: 'simran2005singh',
+    solved: '50+ Repos',
+    rating: '824 Commits',
+    link: 'https://github.com/simran2005singh',
+    icon: 'FiGithub'
+  },
+  {
     name: 'Codolio',
     username: 'simransingh2005',
     solved: 'All Profiles Integrated',

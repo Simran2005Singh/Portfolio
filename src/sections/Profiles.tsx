@@ -1,6 +1,6 @@
 import { useRef, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FiExternalLink, FiAward, FiCheckCircle } from 'react-icons/fi';
+import { FiExternalLink, FiAward, FiCheckCircle, FiGithub } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 import { codingProfiles } from '../data/portfolioData';
 
@@ -96,8 +96,10 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
                     <div className="flex items-center gap-3">
                       {profile.name === 'LeetCode' ? (
                         <SiLeetcode className="text-amber-500" size={20} />
+                      ) : profile.name === 'GitHub' ? (
+                        <FiGithub className="text-purple-400" size={20} />
                       ) : (
-                        <span className="p-0.5 rounded-full bg-zinc-800 text-zinc-400 flex items-center justify-center">
+                        <span className="p-0.5 rounded-full bg-zinc-900 text-zinc-500 flex items-center justify-center">
                           <FiExternalLink size={12} />
                         </span>
                       )}
