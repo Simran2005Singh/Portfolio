@@ -75,7 +75,7 @@ export const personalInfo = {
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/simran2005singh', icon: 'FiGithub' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/simran-singh-921a83295/', icon: 'FiLinkedin' },
-  { name: 'LeetCode', url: 'https://leetcode.com', icon: 'SiLeetcode' },
+  { name: 'LeetCode', url: 'https://leetcode.com/u/simran_val/', icon: 'SiLeetcode' },
 ];
 
 export const skillCategories: SkillCategory[] = [
@@ -180,10 +180,10 @@ export const achievements: Achievement[] = [
 export const codingProfiles: CodingProfile[] = [
   {
     name: 'LeetCode',
-    username: 'simran2005singh',
-    solved: '300+ Problems',
-    rating: 'Knight Rating',
-    link: 'https://leetcode.com',
+    username: 'simran_val',
+    solved: '269 Solved',
+    rating: 'Rank 561,353',
+    link: 'https://leetcode.com/u/simran_val/',
     icon: 'SiLeetcode'
   },
   {

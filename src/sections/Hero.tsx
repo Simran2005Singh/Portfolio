@@ -139,7 +139,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
 
             {/* LeetCode */}
             <a
-              href="https://leetcode.com"
+              href="https://leetcode.com/u/simran_val/"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-6 py-3.5 text-sm font-semibold rounded-2xl border transition-all duration-300 flex items-center gap-2 cursor-pointer ${
