@@ -60,8 +60,8 @@ export const personalInfo = {
   ],
   bio: 'A passionate developer driven by engineering high-performance systems and clean user interfaces. Specializing in full-stack web architectures, core data structures, and optimized backend query designs.',
   oneSentence: 'I design and build premium web systems with a focus on algorithm efficiency, latency reduction, and clean code aesthetics.',
-  email: 'simran.singh@example.com',
-  phone: '+91 XXXXX XXXXX',
+  email: 'simransingh631716@gmail.com',
+  phone: '7611164130',
   location: 'Pune, India',
   resumeUrl: '/resume.pdf',
   education: {
