@@ -25,7 +25,7 @@ export default function Skills({ isDark }: { isDark: boolean }) {
     <section
       id="skills"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#FFFFFF]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -39,7 +39,7 @@ export default function Skills({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             Skills
           </h2>
@@ -60,12 +60,12 @@ export default function Skills({ isDark }: { isDark: boolean }) {
               variants={cardVariants}
               className={`p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-1.5 ${
                 isDark
-                  ? 'border-zinc-900 bg-zinc-900/10 hover:border-zinc-800'
-                  : 'border-zinc-200 bg-zinc-50/10 hover:border-zinc-300'
+                  ? 'border-zinc-800 bg-[#18181B] hover:border-zinc-700'
+                  : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
               }`}
             >
               <h3 className={`text-lg font-bold font-display mb-6 ${
-                isDark ? 'text-zinc-200' : 'text-zinc-800'
+                isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
               }`}>
                 {cat.category}
               </h3>
@@ -77,8 +77,8 @@ export default function Skills({ isDark }: { isDark: boolean }) {
                     key={skill.name}
                     className={`text-xs font-medium px-4 py-2.5 rounded-xl border transition-colors ${
                       isDark
-                        ? 'border-zinc-900 bg-zinc-900/20 text-zinc-400 hover:text-white hover:border-zinc-800'
-                        : 'border-zinc-200 bg-zinc-50 text-zinc-650 hover:text-zinc-900 hover:border-zinc-300'
+                        ? 'border-zinc-800 bg-zinc-900/20 text-[#A1A1AA] hover:text-[#F8FAFC] hover:border-zinc-700'
+                        : 'border-gray-200 bg-gray-50 text-gray-500 hover:text-gray-900 hover:border-gray-300'
                     }`}
                   >
                     {skill.name}

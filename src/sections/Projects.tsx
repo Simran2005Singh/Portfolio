@@ -26,7 +26,7 @@ export default function Projects({ isDark }: { isDark: boolean }) {
     <section
       id="projects"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#FFFFFF]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -40,7 +40,7 @@ export default function Projects({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             Projects
           </h2>
@@ -61,8 +61,8 @@ export default function Projects({ isDark }: { isDark: boolean }) {
               variants={cardVariants}
               className={`p-8 rounded-3xl border flex flex-col md:flex-row gap-8 justify-between items-start transition-all duration-300 hover:-translate-y-1.5 ${
                 isDark
-                  ? 'border-zinc-900 bg-zinc-900/10 hover:border-zinc-800'
-                  : 'border-zinc-200 bg-zinc-50/10 hover:border-zinc-300'
+                  ? 'border-zinc-800 bg-[#18181B] hover:border-zinc-700'
+                  : 'border-gray-200 bg-[#FFFFFF] hover:border-gray-300 shadow-sm'
               }`}
             >
               
@@ -70,19 +70,19 @@ export default function Projects({ isDark }: { isDark: boolean }) {
               <div className="flex-1 space-y-4">
                 <div className="flex items-center gap-4">
                   <span className={`text-3xl font-light font-display opacity-30 ${
-                    isDark ? 'text-zinc-400' : 'text-zinc-600'
+                    isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
                   }`}>
                     0{index + 1}
                   </span>
                   <h3 className={`text-2xl font-bold font-display ${
-                    isDark ? 'text-white' : 'text-zinc-900'
+                    isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
                   }`}>
                     {project.title}
                   </h3>
                 </div>
 
                 <p className={`text-sm leading-relaxed ${
-                  isDark ? 'text-zinc-400 font-light' : 'text-zinc-650'
+                  isDark ? 'text-[#A1A1AA] font-light' : 'text-gray-500'
                 }`}>
                   {project.description}
                 </p>
@@ -94,8 +94,8 @@ export default function Projects({ isDark }: { isDark: boolean }) {
                       key={tech}
                       className={`text-xxs font-mono font-medium px-2.5 py-1 rounded border ${
                         isDark
-                          ? 'border-zinc-900 bg-zinc-900/30 text-zinc-500'
-                          : 'border-zinc-200 bg-zinc-50 text-zinc-600'
+                          ? 'border-zinc-800 bg-zinc-900/30 text-[#A1A1AA]'
+                          : 'border-gray-200 bg-gray-50 text-gray-500'
                       }`}
                     >
                       {tech}
@@ -113,8 +113,8 @@ export default function Projects({ isDark }: { isDark: boolean }) {
                     rel="noopener noreferrer"
                     className={`px-5 py-3 text-xs font-semibold rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-colors w-full md:w-40 ${
                       isDark
-                        ? 'border-zinc-900 bg-zinc-900/20 text-zinc-400 hover:text-white hover:border-zinc-800'
-                        : 'border-zinc-200 bg-zinc-50 text-zinc-600 hover:text-zinc-900 hover:border-zinc-300'
+                        ? 'border-zinc-800 bg-zinc-900/20 text-[#A1A1AA] hover:text-[#F8FAFC] hover:border-zinc-700'
+                        : 'border-gray-200 bg-gray-50 text-gray-500 hover:text-gray-900 hover:border-gray-300'
                     }`}
                   >
                     <FiGithub size={13} />
@@ -128,8 +128,8 @@ export default function Projects({ isDark }: { isDark: boolean }) {
                     rel="noopener noreferrer"
                     className={`px-5 py-3 text-xs font-semibold rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-colors w-full md:w-40 ${
                       isDark
-                        ? 'border-zinc-900 bg-zinc-900/20 text-zinc-400 hover:text-white hover:border-zinc-800'
-                        : 'border-zinc-200 bg-zinc-50 text-zinc-600 hover:text-zinc-900 hover:border-zinc-300'
+                        ? 'border-zinc-800 bg-zinc-900/20 text-[#A1A1AA] hover:text-[#F8FAFC] hover:border-zinc-700'
+                        : 'border-gray-200 bg-gray-50 text-gray-500 hover:text-gray-900 hover:border-gray-300'
                     }`}
                   >
                     <FiExternalLink size={13} />

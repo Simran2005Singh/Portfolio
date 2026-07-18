@@ -27,7 +27,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
     <section
       id="home"
       className={`relative min-h-screen flex items-center justify-center pt-36 pb-24 overflow-hidden ${
-        isDark ? 'bg-zinc-950' : 'bg-white'
+        isDark ? 'bg-[#09090B]' : 'bg-[#FFFFFF]'
       }`}
     >
       {/* Extremely subtle background radial light */}
@@ -45,7 +45,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
           <motion.span
             variants={itemVariants}
             className={`text-xs md:text-sm font-semibold tracking-[0.25em] uppercase ${
-              isDark ? 'text-zinc-500' : 'text-zinc-400'
+              isDark ? 'text-zinc-500' : 'text-gray-500'
             }`}
           >
             Hi, I'm
@@ -70,7 +70,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
               <span
                 key={title}
                 className={`text-xl md:text-3xl font-medium tracking-tight ${
-                  isDark ? 'text-zinc-400' : 'text-zinc-650'
+                  isDark ? 'text-zinc-400' : 'text-gray-500'
                 }`}
               >
                 {title}
@@ -82,7 +82,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
           <motion.p
             variants={itemVariants}
             className={`text-sm md:text-base leading-relaxed max-w-lg ${
-              isDark ? 'text-zinc-400' : 'text-zinc-600'
+              isDark ? 'text-zinc-400' : 'text-gray-500'
             }`}
           >
             {personalInfo.oneSentence}
@@ -100,7 +100,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
               className={`px-6 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm hover:scale-[1.01] ${
                 isDark
                   ? 'bg-white text-zinc-950 hover:bg-zinc-200'
-                  : 'bg-zinc-900 text-white hover:bg-zinc-800'
+                  : 'bg-[#2563EB] text-white hover:bg-[#1D4ED8]'
               }`}
             >
               Download Resume
@@ -145,7 +145,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
               className={`px-6 py-3.5 text-sm font-semibold rounded-2xl border transition-all duration-300 flex items-center gap-2 cursor-pointer ${
                 isDark
                   ? 'border-zinc-800 bg-zinc-900/10 text-zinc-300 hover:border-zinc-700 hover:text-white'
-                  : 'border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-zinc-300 hover:text-zinc-950'
+                  : 'border-gray-200 bg-gray-50 text-gray-700 hover:border-gray-300 hover:text-gray-950'
               }`}
             >
               <SiLeetcode size={14} />
@@ -170,7 +170,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
               className={`w-full h-full rounded-[2rem] overflow-hidden border transition-all duration-500 hover:scale-[1.01] ${
                 isDark
                   ? 'border-zinc-800/80 bg-zinc-900/30'
-                  : 'border-zinc-200/80 bg-zinc-50/30'
+                  : 'border-gray-200 bg-white'
               }`}
             >
               <img

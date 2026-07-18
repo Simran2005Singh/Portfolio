@@ -23,14 +23,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  background-color: #09090B;
-  color: #F4F4F5;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #FFFFFF;
+  color: #111827;
 }
 
-body.light {
-  background-color: #FAFAFA;
-  color: #18181B;
+body.dark {
+  background-color: #09090B;
+  color: #F8FAFC;
+}
+
+body, body *, body *::before, body *::after {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom Scrollbar */
@@ -87,14 +92,14 @@ body.light ::-webkit-scrollbar-thumb:hover {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: #111827;
   transform: translate(-50%, -50%);
   z-index: 10000;
   transition: transform 0.08s ease;
 }
 
-body.light .cursor-dot {
-  background-color: #09090B;
+body.dark .cursor-dot {
+  background-color: #FFFFFF;
 }
 
 /* Hide default cursor on desktop when custom cursor is active */

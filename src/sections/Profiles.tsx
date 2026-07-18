@@ -47,7 +47,7 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
     <section
       id="profiles"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#FFFFFF]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -61,7 +61,7 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             Profiles & Stats
           </h2>
@@ -74,7 +74,7 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
           {/* Left Side: Coding Profile Links */}
           <div className="md:col-span-4 space-y-6">
             <h3 className={`text-xs font-bold uppercase tracking-widest font-sans ${
-              isDark ? 'text-zinc-500' : 'text-zinc-400'
+              isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
             }`}>
               Platform Profiles
             </h3>
@@ -88,8 +88,8 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
                   rel="noopener noreferrer"
                   className={`p-6 rounded-3xl border flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group ${
                     isDark
-                      ? 'border-zinc-900 bg-zinc-900/10 hover:border-zinc-800'
-                      : 'border-zinc-200 bg-zinc-50/10 hover:border-zinc-300'
+                      ? 'border-zinc-800 bg-[#18181B] hover:border-zinc-700'
+                      : 'border-gray-200 bg-[#FFFFFF] hover:border-gray-300 shadow-sm'
                   }`}
                 >
                   <div className="flex justify-between items-start mb-4">
@@ -103,18 +103,18 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
                           <FiExternalLink size={12} />
                         </span>
                       )}
-                      <h4 className={`font-bold font-display ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+                      <h4 className={`font-bold font-display ${isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'}`}>
                         {profile.name}
                       </h4>
                     </div>
                     <FiExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
 
-                  <p className={`text-xs mb-4 font-mono ${isDark ? 'text-zinc-500' : 'text-zinc-400'}`}>
+                  <p className={`text-xs mb-4 font-mono ${isDark ? 'text-[#A1A1AA]' : 'text-gray-500'}`}>
                     @{profile.username}
                   </p>
 
-                  <div className="flex gap-4 text-xs font-semibold pt-3 border-t dark:border-zinc-900 border-zinc-200">
+                  <div className="flex gap-4 text-xs font-semibold pt-3 border-t dark:border-zinc-800 border-zinc-200">
                     <span className="flex items-center gap-1">
                       <FiCheckCircle className="text-emerald-500" size={12} /> {profile.solved}
                     </span>
@@ -132,20 +132,20 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
           {/* Right Side: GitHub Stats Panel */}
           <div className="md:col-span-8 space-y-6">
             <h3 className={`text-xs font-bold uppercase tracking-widest font-sans ${
-              isDark ? 'text-zinc-500' : 'text-zinc-400'
+              isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
             }`}>
               GitHub Analytics
             </h3>
 
             {/* Contributions Box */}
             <div className={`p-6 rounded-3xl border ${
-              isDark ? 'border-zinc-900 bg-zinc-900/10' : 'border-zinc-200 bg-zinc-50/10'
+              isDark ? 'border-zinc-800 bg-[#18181B]' : 'border-gray-200 bg-[#FFFFFF] shadow-sm'
             }`}>
               <div className="flex justify-between items-center mb-6">
                 <span className={`text-xs font-bold uppercase tracking-wider ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                   Contribution Heat-map
                 </span>
-                <span className={`text-[10px] font-mono ${isDark ? 'text-zinc-500' : 'text-zinc-400'}`}>
+                <span className={`text-[10px] font-mono ${isDark ? 'text-[#A1A1AA]' : 'text-gray-500'}`}>
                   824 commits last year
                 </span>
               </div>
@@ -181,12 +181,12 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
                 </span>
                 <div className="py-4 space-y-2">
                   <div className="flex justify-between items-center text-xs">
-                    <span className={isDark ? 'text-zinc-500' : 'text-zinc-400'}>Current Streak</span>
-                    <span className={`font-mono font-bold ${isDark ? 'text-zinc-200' : 'text-zinc-800'}`}>42 Days</span>
+                    <span className={isDark ? 'text-[#A1A1AA]' : 'text-gray-500'}>Current Streak</span>
+                    <span className={`font-mono font-bold ${isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'}`}>42 Days</span>
                   </div>
                   <div className="flex justify-between items-center text-xs">
-                    <span className={isDark ? 'text-zinc-500' : 'text-zinc-400'}>Longest Streak</span>
-                    <span className={`font-mono font-bold ${isDark ? 'text-zinc-200' : 'text-zinc-800'}`}>120 Days</span>
+                    <span className={isDark ? 'text-[#A1A1AA]' : 'text-gray-500'}>Longest Streak</span>
+                    <span className={`font-mono font-bold ${isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'}`}>120 Days</span>
                   </div>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
                     {languages.map((lang) => (
                       <div key={lang.name} className="flex items-center gap-1.5 text-[10px] font-semibold">
                         <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lang.color }} />
-                        <span className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>
+                        <span className={isDark ? 'text-[#A1A1AA]' : 'text-gray-500'}>
                           {lang.name} <span className="opacity-60">{lang.percentage}%</span>
                         </span>
                       </div>

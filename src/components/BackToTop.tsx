@@ -29,8 +29,8 @@ export default function BackToTop({ isDark }: { isDark: boolean }) {
           onClick={scrollToTop}
           className={`fixed bottom-6 right-6 p-3.5 rounded-xl border shadow-xl z-50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 cursor-pointer ${
             isDark
-              ? 'border-slate-800 bg-slate-900/80 text-white hover:bg-slate-800 hover:shadow-glow-purple hover:border-accentPurple'
-              : 'border-slate-200 bg-white/80 text-slate-800 hover:bg-slate-100 hover:shadow-glow-blue hover:border-accentBlue'
+              ? 'border-zinc-800 bg-zinc-900/80 text-white hover:bg-zinc-800'
+              : 'border-gray-200 bg-white/80 text-zinc-900 hover:bg-gray-50'
           }`}
           aria-label="Back to top"
         >

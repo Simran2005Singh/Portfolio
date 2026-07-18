@@ -70,9 +70,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
         scrolled
           ? isDark
             ? 'bg-zinc-950/80 border-zinc-900/60 backdrop-blur-md py-4'
-            : 'bg-white/80 border-zinc-200/60 backdrop-blur-md py-4'
-          : isDark
-          ? 'bg-transparent border-transparent py-6'
+            : 'bg-white/80 border-gray-200/60 backdrop-blur-md py-4'
           : 'bg-transparent border-transparent py-6'
       }`}
     >
@@ -99,7 +97,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                         : 'text-zinc-900'
                       : isDark
                       ? 'text-zinc-500 hover:text-zinc-300'
-                      : 'text-zinc-400 hover:text-zinc-700'
+                      : 'text-gray-500 hover:text-gray-900'
                   }`}
                 >
                   {link.name}
@@ -123,7 +121,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             className={`p-2 rounded-xl border transition-all duration-300 cursor-pointer ${
               isDark
                 ? 'border-zinc-800 bg-zinc-900/30 text-zinc-400 hover:text-white hover:border-zinc-700'
-                : 'border-zinc-200 bg-zinc-50 text-zinc-500 hover:text-zinc-800 hover:border-zinc-350'
+                : 'border-gray-200 bg-gray-50 text-gray-500 hover:text-gray-900 hover:border-gray-300'
             }`}
             aria-label="Toggle theme"
           >
@@ -136,7 +134,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
           <button
             onClick={toggleTheme}
             className={`p-2 rounded-xl border ${
-              isDark ? 'border-zinc-800 text-zinc-400' : 'border-zinc-200 text-zinc-650'
+              isDark ? 'border-zinc-800 text-zinc-400' : 'border-gray-200 text-gray-500'
             }`}
             aria-label="Toggle theme"
           >
@@ -146,7 +144,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`p-2 rounded-xl transition-colors ${
-              isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-650 hover:text-zinc-900'
+              isDark ? 'text-zinc-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
             }`}
             aria-label="Toggle Mobile Menu"
           >
@@ -163,7 +161,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className={`md:hidden overflow-hidden ${
-              isDark ? 'bg-zinc-950/95 border-b border-zinc-900' : 'bg-white/95 border-b border-zinc-200'
+              isDark ? 'bg-zinc-950/95 border-b border-zinc-900' : 'bg-white/95 border-b border-gray-200'
             }`}
           >
             <ul className="px-6 pt-2 pb-6 space-y-4 font-display">
@@ -178,7 +176,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                           : 'text-zinc-900'
                         : isDark
                         ? 'text-zinc-500 hover:text-zinc-300'
-                        : 'text-zinc-400 hover:text-zinc-700'
+                        : 'text-gray-500 hover:text-gray-900'
                     }`}
                   >
                     {link.name}

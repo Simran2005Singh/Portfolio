@@ -13,19 +13,23 @@ import CustomCursor from './components/CustomCursor';
 import BackToTop from './components/BackToTop';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      setIsDark(false);
-      document.body.classList.add('light');
-      document.body.classList.remove('dark');
-    } else {
+    if (savedTheme === 'dark') {
       setIsDark(true);
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
       document.body.classList.add('dark');
       document.body.classList.remove('light');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+      document.body.classList.add('light');
+      document.body.classList.remove('dark');
     }
   }, []);
 
@@ -33,18 +37,22 @@ export default function App() {
     if (isDark) {
       setIsDark(false);
       localStorage.setItem('theme', 'light');
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
       document.body.classList.add('light');
       document.body.classList.remove('dark');
     } else {
       setIsDark(true);
       localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
       document.body.classList.add('dark');
       document.body.classList.remove('light');
     }
   };
 
   return (
-    <div className={`min-h-screen ${isDark ? 'bg-darkBg text-slate-100' : 'bg-lightBg text-slate-900'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-[#09090B] text-[#F8FAFC]' : 'bg-[#FFFFFF] text-[#111827]'}`}>
       {/* Custom interactive cursor */}
       <CustomCursor />
 

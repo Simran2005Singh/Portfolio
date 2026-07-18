@@ -26,7 +26,7 @@ export default function About({ isDark }: { isDark: boolean }) {
     { label: 'Degree', value: 'B.E Information Technology' },
     { label: 'Institution', value: 'Army Institute of Technology' },
     { label: 'Leadership', value: 'Secretary Technical Board' },
-    { label: 'Problem Solving', value: '300+ DSA Problems Solved' },
+    { label: 'Problem Solving', value: '269 DSA Problems Solved' },
     { label: 'Specialization', value: 'React & Frontend Developer' },
     { label: 'Interests', value: 'High Performance Backend Systems' },
   ];
@@ -35,7 +35,7 @@ export default function About({ isDark }: { isDark: boolean }) {
     <section
       id="about"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#F8FAFC]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -49,7 +49,7 @@ export default function About({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             About
           </h2>
@@ -68,7 +68,7 @@ export default function About({ isDark }: { isDark: boolean }) {
           <motion.p
             variants={itemVariants}
             className={`text-base md:text-lg leading-relaxed font-sans ${
-              isDark ? 'text-zinc-400 font-light' : 'text-zinc-700'
+              isDark ? 'text-[#A1A1AA] font-light' : 'text-gray-500'
             }`}
           >
             {personalInfo.bio} I focus on developing systems that are both mathematically efficient and visually polished. I strive to merge strong algorithmic foundations with modern client architecture to engineer robust web portals.
@@ -79,22 +79,22 @@ export default function About({ isDark }: { isDark: boolean }) {
             variants={itemVariants}
             className={`rounded-3xl border divide-y ${
               isDark
-                ? 'border-zinc-900 bg-zinc-900/10 divide-zinc-900'
-                : 'border-zinc-200 bg-zinc-50/10 divide-zinc-200'
+                ? 'border-zinc-800 bg-[#18181B] divide-zinc-800'
+                : 'border-gray-200 bg-[#FFFFFF] divide-gray-200'
             }`}
           >
             {bullets.map((bullet) => (
               <div
                 key={bullet.label}
-                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-2 transition-colors duration-300 hover:bg-zinc-900/5 dark:hover:bg-zinc-900/30"
+                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-2 transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-zinc-800/40"
               >
                 <span className={`text-xs uppercase font-bold tracking-widest ${
-                  isDark ? 'text-zinc-500' : 'text-zinc-400'
+                  isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
                 }`}>
                   {bullet.label}
                 </span>
                 <span className={`text-sm font-semibold flex items-center gap-2 ${
-                  isDark ? 'text-zinc-300' : 'text-zinc-800'
+                  isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
                 }`}>
                   <FiArrowRight className="text-accentPurple opacity-50" size={13} />
                   {bullet.value}

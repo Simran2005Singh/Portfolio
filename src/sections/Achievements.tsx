@@ -25,7 +25,7 @@ export default function Achievements({ isDark }: { isDark: boolean }) {
     <section
       id="achievements"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#F8FAFC]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -39,7 +39,7 @@ export default function Achievements({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             Achievements
           </h2>
@@ -60,25 +60,25 @@ export default function Achievements({ isDark }: { isDark: boolean }) {
               variants={cardVariants}
               className={`p-8 rounded-3xl border flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 ${
                 isDark
-                  ? 'border-zinc-900 bg-zinc-900/10 hover:border-zinc-800'
-                  : 'border-zinc-200 bg-zinc-50/10 hover:border-zinc-300'
+                  ? 'border-zinc-800 bg-[#18181B] hover:border-zinc-700'
+                  : 'border-gray-200 bg-[#FFFFFF] hover:border-gray-300 shadow-sm'
               }`}
             >
               <div>
                 <span className={`text-xxs font-mono uppercase tracking-widest font-semibold ${
-                  isDark ? 'text-zinc-500' : 'text-zinc-400'
+                  isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
                 }`}>
                   {ach.date} &middot; {ach.issuer}
                 </span>
 
                 <h3 className={`text-xl font-bold font-display mt-4 mb-2 ${
-                  isDark ? 'text-zinc-150' : 'text-zinc-900'
+                  isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
                 }`}>
                   {ach.title}
                 </h3>
 
                 <p className={`text-xs leading-relaxed ${
-                  isDark ? 'text-zinc-400 font-light' : 'text-zinc-650'
+                  isDark ? 'text-[#A1A1AA] font-light' : 'text-gray-500'
                 }`}>
                   {ach.description}
                 </p>

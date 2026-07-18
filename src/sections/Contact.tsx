@@ -42,7 +42,7 @@ export default function Contact({ isDark }: { isDark: boolean }) {
     <section
       id="contact"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#F8FAFC]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -56,7 +56,7 @@ export default function Contact({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             Contact
           </h2>
@@ -65,27 +65,27 @@ export default function Contact({ isDark }: { isDark: boolean }) {
 
         {/* Contact Card Layout */}
         <div
-          className={`p-8 md:p-12 rounded-3xl border ${
-            isDark
-              ? 'border-zinc-900 bg-zinc-900/10'
-              : 'border-zinc-200 bg-zinc-50/10'
-          }`}
+            className={`p-8 md:p-12 rounded-3xl border ${
+              isDark
+                ? 'border-zinc-800 bg-[#18181B]'
+                : 'border-gray-200 bg-[#FFFFFF] shadow-sm'
+            }`}
         >
           <div className="max-w-xl space-y-8">
             <h3 className={`text-2xl md:text-3xl font-bold font-display ${
-              isDark ? 'text-zinc-100' : 'text-zinc-900'
+              isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
             }`}>
               Let's build something exceptional.
             </h3>
             
             <p className={`text-sm leading-relaxed ${
-              isDark ? 'text-zinc-400 font-light' : 'text-zinc-650'
+              isDark ? 'text-[#A1A1AA] font-light' : 'text-gray-500'
             }`}>
               I am open to full-time developer opportunities, technical internships, and collaborative software engineering projects. Feel free to reach out through any of these channels.
             </p>
 
             {/* Methods Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t dark:border-zinc-900 border-zinc-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t dark:border-zinc-800 border-gray-200">
               {contactMethods.map((method) => {
                 const Icon = method.icon;
                 return (
@@ -96,24 +96,24 @@ export default function Contact({ isDark }: { isDark: boolean }) {
                     rel="noopener noreferrer"
                     className={`flex items-center justify-between p-4 rounded-2xl border transition-all duration-300 group hover:-translate-y-1 ${
                       isDark
-                        ? 'border-zinc-900 bg-zinc-900/20 hover:border-zinc-800'
-                        : 'border-zinc-200 bg-zinc-50 hover:border-zinc-300'
+                        ? 'border-zinc-800 bg-zinc-900/20 hover:border-zinc-700'
+                        : 'border-gray-200 bg-gray-50 hover:border-gray-300 shadow-sm'
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <span className={`p-2.5 rounded-xl ${
-                        isDark ? 'bg-zinc-900' : 'bg-zinc-100'
+                        isDark ? 'bg-zinc-800' : 'bg-gray-100'
                       }`}>
                         <Icon size={16} />
                       </span>
                       <div>
                         <span className={`text-[10px] uppercase font-bold tracking-wider block ${
-                          isDark ? 'text-zinc-500' : 'text-zinc-400'
+                          isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
                         }`}>
                           {method.name}
                         </span>
                         <span className={`text-xs font-semibold font-mono ${
-                          isDark ? 'text-zinc-300' : 'text-zinc-800'
+                          isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
                         }`}>
                           {method.value}
                         </span>

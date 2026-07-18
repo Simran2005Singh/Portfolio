@@ -10,7 +10,7 @@ export default function Experience({ isDark }: { isDark: boolean }) {
     <section
       id="experience"
       className={`py-36 relative overflow-hidden border-t ${
-        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
+        isDark ? 'border-zinc-900 bg-[#09090B]' : 'border-gray-200 bg-[#F8FAFC]'
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -24,7 +24,7 @@ export default function Experience({ isDark }: { isDark: boolean }) {
           className="mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
-            isDark ? 'text-white' : 'text-zinc-900'
+            isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
           }`}>
             Experience
           </h2>
@@ -41,7 +41,7 @@ export default function Experience({ isDark }: { isDark: boolean }) {
               {/* Left Side: Duration */}
               <div className="md:col-span-4">
                 <span className={`text-xs md:text-sm font-semibold tracking-wider font-mono uppercase ${
-                  isDark ? 'text-zinc-500' : 'text-zinc-400'
+                   isDark ? 'text-[#A1A1AA]' : 'text-gray-500'
                 }`}>
                   {item.duration}
                 </span>
@@ -51,7 +51,7 @@ export default function Experience({ isDark }: { isDark: boolean }) {
               <div className="md:col-span-8 space-y-4">
                 <div>
                   <h3 className={`text-2xl font-bold font-display ${
-                    isDark ? 'text-zinc-100' : 'text-zinc-900'
+                     isDark ? 'text-[#F8FAFC]' : 'text-[#111827]'
                   }`}>
                     {item.role}
                   </h3>
@@ -65,7 +65,7 @@ export default function Experience({ isDark }: { isDark: boolean }) {
                     <li
                       key={idx}
                       className={`text-sm leading-relaxed relative pl-4 ${
-                        isDark ? 'text-zinc-400 font-light' : 'text-zinc-650'
+                         isDark ? 'text-[#A1A1AA] font-light' : 'text-gray-500'
                       }`}
                     >
                       <span className="absolute left-0 top-2.5 w-1.5 h-[1px] bg-zinc-700" />
