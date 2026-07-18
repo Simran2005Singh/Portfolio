@@ -7,8 +7,6 @@ import Projects from './sections/Projects';
 import Experience from './sections/Experience';
 import Achievements from './sections/Achievements';
 import Profiles from './sections/Profiles';
-import Github from './sections/Github';
-import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import CustomCursor from './components/CustomCursor';
@@ -73,14 +71,8 @@ export default function App() {
         {/* Section 6: Achievements */}
         <Achievements isDark={isDark} />
 
-        {/* Section 7: Coding Profiles */}
+        {/* Section 7: Coding Profiles & GitHub Stats */}
         <Profiles isDark={isDark} />
-
-        {/* Section 7.1: GitHub Section */}
-        <Github isDark={isDark} />
-
-        {/* Section 7.2: Testimonials Section */}
-        <Testimonials isDark={isDark} />
 
         {/* Section 8: Contact */}
         <Contact isDark={isDark} />

@@ -1,173 +1,190 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiArrowRight, FiDownload, FiMail } from 'react-icons/fi';
-import { SiLeetcode, SiCodechef, SiGeeksforgeeks } from 'react-icons/si';
-import { personalInfo, socialLinks } from '../data/portfolioData';
-import { fadeIn, staggerContainer } from '../animations/variants';
-import TypingAnimation from '../components/TypingAnimation';
+import { FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi';
+import { SiLeetcode } from 'react-icons/si';
+import { personalInfo } from '../data/portfolioData';
 import avatarImg from '../assets/developer_avatar.png';
 
-const iconMap: Record<string, any> = {
-  FiGithub: FiGithub,
-  FiLinkedin: FiLinkedin,
-  SiLeetcode: SiLeetcode,
-  SiCodechef: SiCodechef,
-  SiGeeksforgeeks: SiGeeksforgeeks,
-};
-
 export default function Hero({ isDark }: { isDark: boolean }) {
-  const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 100, damping: 20 } },
   };
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden grid-mesh"
+      className={`relative min-h-screen flex items-center justify-center pt-36 pb-24 overflow-hidden ${
+        isDark ? 'bg-zinc-950' : 'bg-white'
+      }`}
     >
-      {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-accentBlue/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse-slow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-accentPurple/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse-slow pointer-events-none" />
+      {/* Extremely subtle background radial light */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accentPurple/5 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
         
-        {/* Left Content Column */}
+        {/* Left Display Info */}
         <motion.div
-          variants={staggerContainer(0.1, 0.2)}
+          variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="lg:col-span-7 flex flex-col justify-center text-left"
+          className="lg:col-span-7 flex flex-col justify-center text-left space-y-6"
         >
-          <motion.h4
-            variants={fadeIn('up', 0.5)}
-            className="text-lg md:text-xl font-medium tracking-wide text-accentBlue mb-3"
+          <motion.span
+            variants={itemVariants}
+            className={`text-xs md:text-sm font-semibold tracking-[0.25em] uppercase ${
+              isDark ? 'text-zinc-500' : 'text-zinc-400'
+            }`}
           >
-            Hi, my name is
-          </motion.h4>
+            Hi, I'm
+          </motion.span>
 
           <motion.h1
-            variants={fadeIn('up', 0.5)}
-            className={`text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 ${
-              isDark ? 'text-white' : 'text-slate-900'
+            variants={itemVariants}
+            className={`text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] font-display ${
+              isDark ? 'text-white' : 'text-zinc-900'
             }`}
           >
-            {personalInfo.name}
+            SIMRAN <br />
+            SINGH
           </motion.h1>
 
+          {/* Subtitles Stack */}
           <motion.div
-            variants={fadeIn('up', 0.5)}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 h-12 flex items-center"
+            variants={itemVariants}
+            className="flex flex-col space-y-1 font-display"
           >
-            <span className={`mr-2 ${isDark ? 'text-slate-350' : 'text-slate-700'}`}>I am a</span>
-            <TypingAnimation words={personalInfo.titles} />
+            {personalInfo.titles.map((title) => (
+              <span
+                key={title}
+                className={`text-xl md:text-3xl font-medium tracking-tight ${
+                  isDark ? 'text-zinc-400' : 'text-zinc-650'
+                }`}
+              >
+                {title}
+              </span>
+            ))}
           </motion.div>
 
+          {/* One sentence bio */}
           <motion.p
-            variants={fadeIn('up', 0.5)}
-            className={`max-w-xl text-base md:text-lg mb-8 leading-relaxed ${
-              isDark ? 'text-slate-400' : 'text-slate-600'
+            variants={itemVariants}
+            className={`text-sm md:text-base leading-relaxed max-w-lg ${
+              isDark ? 'text-zinc-400' : 'text-zinc-600'
             }`}
           >
-            {personalInfo.bio}
+            {personalInfo.oneSentence}
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Premium Actions Bar */}
           <motion.div
-            variants={fadeIn('up', 0.5)}
-            className="flex flex-wrap gap-4 mb-10"
+            variants={itemVariants}
+            className="flex flex-wrap gap-4 pt-4"
           >
-            <button
-              onClick={() => handleScrollTo('projects')}
-              className="px-6 py-3.5 bg-gradient-to-r from-accentBlue to-accentPurple text-white font-medium rounded-xl hover:shadow-glow-purple transition-all duration-300 flex items-center gap-2 group hover:scale-[1.02]"
-            >
-              View Projects
-              <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            <button
-              onClick={() => handleScrollTo('contact')}
-              className={`px-6 py-3.5 font-medium rounded-xl border transition-all duration-300 flex items-center gap-2 hover:scale-[1.02] ${
-                isDark
-                  ? 'border-slate-800 bg-slate-900/40 text-slate-300 hover:bg-slate-800 hover:text-white'
-                  : 'border-slate-300 bg-white/40 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-              }`}
-            >
-              Contact Me
-              <FiMail />
-            </button>
-
+            {/* Primary Action */}
             <a
               href={personalInfo.resumeUrl}
               download
-              className={`px-6 py-3.5 font-medium rounded-xl border transition-all duration-300 flex items-center gap-2 hover:scale-[1.02] ${
+              className={`px-6 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm hover:scale-[1.01] ${
                 isDark
-                  ? 'border-accentPurple/20 bg-accentPurple/5 text-accentPurple hover:bg-accentPurple hover:text-white hover:border-transparent'
-                  : 'border-accentBlue/20 bg-accentBlue/5 text-accentBlue hover:bg-accentBlue hover:text-white hover:border-transparent'
+                  ? 'bg-white text-zinc-950 hover:bg-zinc-200'
+                  : 'bg-zinc-900 text-white hover:bg-zinc-800'
               }`}
             >
-              Resume
-              <FiDownload />
+              Download Resume
+              <FiDownload size={14} />
             </a>
-          </motion.div>
 
-          {/* Social Links Row */}
-          <motion.div
-            variants={fadeIn('up', 0.5)}
-            className="flex items-center space-x-5"
-          >
-            {socialLinks.map((social) => {
-              const IconComp = iconMap[social.icon];
-              return (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3.5 rounded-xl border transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
-                    isDark
-                      ? 'border-slate-850 bg-slate-900/30 text-slate-400 hover:text-white hover:border-accentPurple hover:shadow-glow-purple'
-                      : 'border-slate-200 bg-white/30 text-slate-600 hover:text-slate-900 hover:border-accentBlue hover:shadow-glow-blue'
-                  }`}
-                  title={social.name}
-                >
-                  {IconComp ? <IconComp size={20} /> : social.name}
-                </a>
-              );
-            })}
+            {/* GitHub */}
+            <a
+              href="https://github.com/simran2005singh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-3.5 text-sm font-semibold rounded-2xl border transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                isDark
+                  ? 'border-zinc-800 bg-zinc-900/10 text-zinc-300 hover:border-zinc-700 hover:text-white'
+                  : 'border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-zinc-300 hover:text-zinc-950'
+              }`}
+            >
+              <FiGithub size={15} />
+              GitHub
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-3.5 text-sm font-semibold rounded-2xl border transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                isDark
+                  ? 'border-zinc-800 bg-zinc-900/10 text-zinc-300 hover:border-zinc-700 hover:text-white'
+                  : 'border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-zinc-300 hover:text-zinc-950'
+              }`}
+            >
+              <FiLinkedin size={15} />
+              LinkedIn
+            </a>
+
+            {/* LeetCode */}
+            <a
+              href="https://leetcode.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-3.5 text-sm font-semibold rounded-2xl border transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                isDark
+                  ? 'border-zinc-800 bg-zinc-900/10 text-zinc-300 hover:border-zinc-700 hover:text-white'
+                  : 'border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-zinc-300 hover:text-zinc-950'
+              }`}
+            >
+              <SiLeetcode size={14} />
+              LeetCode
+            </a>
           </motion.div>
         </motion.div>
 
-        {/* Right Portrait Image Column */}
+        {/* Right Portrait Column */}
         <div className="lg:col-span-5 flex justify-center items-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.4 }}
-            className="relative w-72 h-72 md:w-96 md:h-96"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 90, damping: 20, delay: 0.3 }}
+            className="relative w-64 h-64 md:w-80 md:h-80"
           >
-            {/* Pulsing ring outline */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-accentBlue to-accentPurple rounded-3xl blur opacity-30 animate-pulse-slow scale-105" />
+            {/* Very soft ambient backglow */}
+            <div className="absolute inset-0 bg-accentPurple/5 rounded-[2.5rem] blur-2xl pointer-events-none" />
 
-            {/* Rotating gradient background card borders */}
-            <div className="absolute -inset-1.5 bg-gradient-to-tr from-accentBlue via-accentPurple to-accentPink rounded-3xl animate-float opacity-50 blur-[2px]" />
-
-            {/* Image Container */}
+            {/* Main Picture Frame */}
             <div
-              className={`relative w-full h-full rounded-3xl overflow-hidden border-2 ${
-                isDark ? 'border-slate-900 bg-slate-950' : 'border-slate-100 bg-white'
+              className={`w-full h-full rounded-[2rem] overflow-hidden border transition-all duration-500 hover:scale-[1.01] ${
+                isDark
+                  ? 'border-zinc-800/80 bg-zinc-900/30'
+                  : 'border-zinc-200/80 bg-zinc-50/30'
               }`}
             >
               <img
                 src={avatarImg}
-                alt="Simran Singh Avatar"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                alt="Simran Singh Profile"
+                className={`w-full h-full object-cover select-none pointer-events-none transition-all duration-700 hover:scale-105 ${
+                  isDark ? 'brightness-[0.95] contrast-[1.05]' : ''
+                }`}
                 loading="eager"
               />
             </div>
           </motion.div>
         </div>
+
       </div>
     </section>
   );

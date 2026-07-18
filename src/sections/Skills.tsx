@@ -1,52 +1,34 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { skillCategories } from '../data/portfolioData';
-import { fadeIn, staggerContainer } from '../animations/variants';
-
-interface SkillRowProps {
-  name: string;
-  level: number;
-  isDark: boolean;
-}
-
-function SkillRow({ name, level, isDark }: SkillRowProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <div ref={ref} className="space-y-2">
-      <div className="flex justify-between items-center text-sm">
-        <span className="font-semibold">{name}</span>
-        <span className={`text-xs font-mono font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{level}%</span>
-      </div>
-      <div className={`h-2 w-full rounded-full overflow-hidden ${isDark ? 'bg-slate-800' : 'bg-slate-200'}`}>
-        <motion.div
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${level}%` } : {}}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="h-full bg-gradient-to-r from-accentBlue via-accentPurple to-accentPink rounded-full"
-        />
-      </div>
-    </div>
-  );
-}
 
 export default function Skills({ isDark }: { isDark: boolean }) {
   const headerRef = useRef(null);
   const isHeaderInView = useInView(headerRef, { once: true, margin: '-100px' });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 100, damping: 20 } },
+  };
+
   return (
     <section
       id="skills"
-      className={`py-24 relative overflow-hidden border-t ${
-        isDark ? 'border-slate-900/50 bg-slate-950/40' : 'border-slate-200/50 bg-slate-50/40'
+      className={`py-36 relative overflow-hidden border-t ${
+        isDark ? 'border-zinc-900 bg-zinc-950/20' : 'border-zinc-200 bg-zinc-50/20'
       }`}
     >
-      {/* Background ambient light */}
-      <div className="absolute top-1/4 left-1/3 w-[300px] h-[300px] bg-accentBlue/5 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/3 w-[450px] h-[450px] bg-accentPink/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         {/* Section Heading */}
         <motion.div
@@ -54,51 +36,53 @@ export default function Skills({ isDark }: { isDark: boolean }) {
           initial={{ opacity: 0, y: 20 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
-            Skills & <span className="bg-clip-text text-transparent bg-gradient-to-r from-accentBlue to-accentPurple">Expertise</span>
+          <h2 className={`text-4xl md:text-5xl font-bold tracking-tight font-display ${
+            isDark ? 'text-white' : 'text-zinc-900'
+          }`}>
+            Skills
           </h2>
-          <div className="w-16 h-1.5 bg-gradient-to-r from-accentBlue to-accentPurple mx-auto rounded-full mb-4" />
-          <p className={`max-w-xl mx-auto text-sm md:text-base ${isDark ? 'text-slate-400' : 'text-slate-550'}`}>
-            My technical skills categorized by proficiency, covering programming, frontend, backend systems, and tools.
-          </p>
+          <div className="w-10 h-[2px] bg-zinc-700 mt-4" />
         </motion.div>
 
         {/* Categories Grid */}
         <motion.div
-          variants={staggerContainer(0.15, 0.1)}
+          variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {skillCategories.map((cat, catIdx) => (
+          {skillCategories.map((cat) => (
             <motion.div
               key={cat.category}
-              variants={fadeIn('up', 0.5, catIdx * 0.05)}
-              className={`p-8 rounded-2xl border transition-all duration-300 hover:shadow-glass-dark hover:-translate-y-1.5 ${
+              variants={cardVariants}
+              className={`p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-1.5 ${
                 isDark
-                  ? 'glass-card-dark border-white/5 hover:border-accentPurple/25'
-                  : 'glass-card-light border-black/5 hover:border-accentBlue/25'
+                  ? 'border-zinc-900 bg-zinc-900/10 hover:border-zinc-800'
+                  : 'border-zinc-200 bg-zinc-50/10 hover:border-zinc-300'
               }`}
             >
-              <h3 className="text-xl font-bold mb-6 flex items-center justify-between pb-3 border-b dark:border-slate-850 border-slate-200">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-accentBlue to-accentPurple">
-                  {cat.category}
-                </span>
-                <span className="text-xs font-mono font-normal opacity-50">
-                  0{catIdx + 1}
-                </span>
+              <h3 className={`text-lg font-bold font-display mb-6 ${
+                isDark ? 'text-zinc-200' : 'text-zinc-800'
+              }`}>
+                {cat.category}
               </h3>
-              <div className="space-y-5">
+              
+              {/* Skills Badges Grid */}
+              <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map((skill) => (
-                  <SkillRow
+                  <span
                     key={skill.name}
-                    name={skill.name}
-                    level={skill.level}
-                    isDark={isDark}
-                  />
+                    className={`text-xs font-medium px-4 py-2.5 rounded-xl border transition-colors ${
+                      isDark
+                        ? 'border-zinc-900 bg-zinc-900/20 text-zinc-400 hover:text-white hover:border-zinc-800'
+                        : 'border-zinc-200 bg-zinc-50 text-zinc-650 hover:text-zinc-900 hover:border-zinc-300'
+                    }`}
+                  >
+                    {skill.name}
+                  </span>
                 ))}
               </div>
             </motion.div>

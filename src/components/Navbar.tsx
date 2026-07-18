@@ -13,24 +13,23 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
-    { name: 'Home', id: 'home' },
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
-    { name: 'Projects', id: 'projects' },
     { name: 'Experience', id: 'experience' },
+    { name: 'Projects', id: 'projects' },
     { name: 'Achievements', id: 'achievements' },
-    { name: 'Profiles', id: 'profiles' },
     { name: 'Contact', id: 'contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      // Background shift on scroll
       setScrolled(window.scrollY > 20);
 
       // Active section detection
-      const sections = navLinks.map(link => document.getElementById(link.id));
-      const scrollPosition = window.scrollY + 200;
+      const sections = ['home', ...navLinks.map((link) => link.id)].map((id) =>
+        document.getElementById(id)
+      );
+      const scrollPosition = window.scrollY + 160;
 
       for (const section of sections) {
         if (!section) continue;
@@ -52,136 +51,134 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
     setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${
         scrolled
           ? isDark
-            ? 'glass-nav-dark py-4'
-            : 'glass-nav-light py-4'
-          : 'bg-transparent py-6'
+            ? 'bg-zinc-950/80 border-zinc-900/60 backdrop-blur-md py-4'
+            : 'bg-white/80 border-zinc-200/60 backdrop-blur-md py-4'
+          : isDark
+          ? 'bg-transparent border-transparent py-6'
+          : 'bg-transparent border-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="cursor-pointer"
-          onClick={() => scrollToSection('home')}
+      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+        {/* Brand Name */}
+        <div
+          className="cursor-pointer font-display text-lg font-bold tracking-tight text-zinc-100 dark:text-zinc-100"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <span className="text-2xl font-bold tracking-wider font-sans bg-clip-text text-transparent bg-gradient-to-r from-accentBlue to-accentPurple">
-            &lt;Simran.dev /&gt;
-          </span>
-        </motion.div>
+          <span className={isDark ? 'text-white' : 'text-zinc-900'}>Simran Singh</span>
+        </div>
 
-        {/* Desktop Nav Links */}
+        {/* Links & Action button */}
         <div className="hidden md:flex items-center space-x-8">
-          <ul className="flex space-x-6">
-            {navLinks.map((link, index) => (
-              <motion.li
-                key={link.id}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-              >
+          <ul className="flex space-x-8">
+            {navLinks.map((link) => (
+              <li key={link.id}>
                 <button
                   onClick={() => scrollToSection(link.id)}
-                  className={`text-sm font-medium relative py-1 transition-colors duration-300 ${
+                  className={`text-sm font-medium tracking-wide relative py-1 transition-all duration-300 ${
                     activeSection === link.id
                       ? isDark
                         ? 'text-white'
-                        : 'text-slate-900'
+                        : 'text-zinc-900'
                       : isDark
-                      ? 'text-slate-400 hover:text-white'
-                      : 'text-slate-600 hover:text-slate-955'
+                      ? 'text-zinc-500 hover:text-zinc-300'
+                      : 'text-zinc-400 hover:text-zinc-700'
                   }`}
                 >
                   {link.name}
                   {activeSection === link.id && (
                     <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accentBlue to-accentPurple rounded-full"
+                      layoutId="activeNavLine"
+                      className={`absolute bottom-0 left-0 right-0 h-[1.5px] ${
+                        isDark ? 'bg-white' : 'bg-zinc-900'
+                      }`}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                 </button>
-              </motion.li>
+              </li>
             ))}
           </ul>
 
-          {/* Theme Toggle */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            onClick={toggleTheme}
-            className={`p-2 rounded-full border transition-all duration-300 ${
-              isDark
-                ? 'border-slate-800 bg-slate-900/50 text-amber-400 hover:bg-slate-800'
-                : 'border-slate-200 bg-white/50 text-slate-800 hover:bg-slate-100'
-            }`}
-            aria-label="Toggle Theme"
-          >
-            {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
-          </motion.button>
-        </div>
-
-        {/* Mobile Toggle Button */}
-        <div className="md:hidden flex items-center space-x-4">
-          {/* Theme Toggle for Mobile */}
+          {/* Theme Switcher */}
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-full border transition-all duration-300 ${
+            className={`p-2 rounded-xl border transition-all duration-300 cursor-pointer ${
               isDark
-                ? 'border-slate-800 bg-slate-900/50 text-amber-400'
-                : 'border-slate-200 bg-white/50 text-slate-800'
+                ? 'border-zinc-800 bg-zinc-900/30 text-zinc-400 hover:text-white hover:border-zinc-700'
+                : 'border-zinc-200 bg-zinc-50 text-zinc-500 hover:text-zinc-800 hover:border-zinc-350'
             }`}
-            aria-label="Toggle Theme"
+            aria-label="Toggle theme"
           >
-            {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+            {isDark ? <FiSun size={15} /> : <FiMoon size={15} />}
+          </button>
+        </div>
+
+        {/* Mobile menu trigger */}
+        <div className="md:hidden flex items-center space-x-3">
+          <button
+            onClick={toggleTheme}
+            className={`p-2 rounded-xl border ${
+              isDark ? 'border-zinc-800 text-zinc-400' : 'border-zinc-200 text-zinc-650'
+            }`}
+            aria-label="Toggle theme"
+          >
+            {isDark ? <FiSun size={15} /> : <FiMoon size={15} />}
           </button>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-2 rounded-lg transition-colors ${
-              isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+            className={`p-2 rounded-xl transition-colors ${
+              isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-650 hover:text-zinc-900'
             }`}
             aria-label="Toggle Mobile Menu"
           >
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
             className={`md:hidden overflow-hidden ${
-              isDark ? 'bg-slate-950/95 border-b border-slate-900' : 'bg-white/95 border-b border-slate-100'
+              isDark ? 'bg-zinc-950/95 border-b border-zinc-900' : 'bg-white/95 border-b border-zinc-200'
             }`}
           >
-            <ul className="px-6 pt-2 pb-6 space-y-4">
+            <ul className="px-6 pt-2 pb-6 space-y-4 font-display">
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className={`block w-full text-left py-2 text-base font-medium transition-colors ${
+                    className={`block w-full text-left py-2 text-sm font-semibold tracking-wide transition-colors ${
                       activeSection === link.id
-                        ? 'text-accentPurple font-bold'
+                        ? isDark
+                          ? 'text-white'
+                          : 'text-zinc-900'
                         : isDark
-                        ? 'text-slate-400 hover:text-white'
-                        : 'text-slate-600 hover:text-slate-900'
+                        ? 'text-zinc-500 hover:text-zinc-300'
+                        : 'text-zinc-400 hover:text-zinc-700'
                     }`}
                   >
                     {link.name}

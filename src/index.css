@@ -1,69 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --color-darkBg: #09090B;
-  --color-darkCard: #131316;
-  --color-darkCardBorder: rgba(255, 255, 255, 0.05);
-  --color-lightBg: #F8FAFC;
-  --color-lightCard: #FFFFFF;
-  --color-lightCardBorder: rgba(0, 0, 0, 0.04);
+  --color-darkCard: #141416;
   --color-accentPurple: #8B5CF6;
   --color-accentBlue: #3B82F6;
-  --color-accentPink: #EC4899;
 
-  --font-sans: 'Outfit', 'Inter', sans-serif;
-  --font-mono: 'Fira Code', 'monospace';
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-float-slow: float 8s ease-in-out infinite;
-  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-glow-slow: glow 12s ease-in-out infinite;
-  --animate-gradient-bg: gradient-bg 15s ease infinite;
-
-  --shadow-glass-dark: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --shadow-glass-light: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-  --shadow-glow-purple: 0 0 25px rgba(139, 92, 246, 0.3);
-  --shadow-glow-blue: 0 0 25px rgba(59, 130, 246, 0.3);
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-  }
-  @keyframes glow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
-  }
-  @keyframes gradient-bg {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
 }
 
-/* Custom styles and standard utilities */
+/* Base resets */
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
 body {
+  background-color: #09090B;
+  color: #F4F4F5;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark {
-  background-color: #09090B;
-  color: #F4F4F5;
-}
-
 body.light {
-  background-color: #F8FAFC;
-  color: #0F172A;
+  background-color: #FAFAFA;
+  color: #18181B;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -71,57 +43,26 @@ body.light {
 }
 
 body.dark ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
 }
 
 body.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 body.light ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 9999px;
 }
 
 body.light ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 ::selection {
-  background-color: rgba(139, 92, 246, 0.3);
-  color: #8B5CF6;
-}
-
-/* Premium Glassmorphism Card Style */
-.glass-card-dark {
-  background: rgba(19, 19, 22, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-.glass-card-light {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
-}
-
-.glass-nav-dark {
-  background: rgba(9, 9, 11, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.glass-nav-light {
-  background: rgba(248, 250, 252, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(139, 92, 246, 0.2);
+  color: #A78BFA;
 }
 
 /* Custom Cursor Glow */
@@ -130,13 +71,12 @@ body.light ::-webkit-scrollbar-thumb:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, rgba(59, 130, 246, 0.01) 50%, rgba(0,0,0,0) 70%);
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
 }
 
 .cursor-dot {
@@ -144,13 +84,17 @@ body.light ::-webkit-scrollbar-thumb:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: #8B5CF6;
+  background-color: #FFFFFF;
   transform: translate(-50%, -50%);
   z-index: 10000;
-  transition: transform 0.1s ease;
+  transition: transform 0.08s ease;
+}
+
+body.light .cursor-dot {
+  background-color: #09090B;
 }
 
 /* Hide default cursor on desktop when custom cursor is active */
@@ -163,18 +107,4 @@ body.light ::-webkit-scrollbar-thumb:hover {
   .custom-cursor-active textarea {
     cursor: none !important;
   }
-}
-
-/* Glow grid mesh background */
-.grid-mesh {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(128, 90, 213, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(128, 90, 213, 0.03) 1px, transparent 1px);
-}
-
-.dark .grid-mesh {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
