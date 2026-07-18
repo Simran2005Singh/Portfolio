@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 import { personalInfo } from '../data/portfolioData';
 import avatarImg from '../assets/developer_avatar.png';
@@ -93,19 +93,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
             variants={itemVariants}
             className="flex flex-wrap gap-4 pt-4"
           >
-            {/* Primary Action */}
-            <a
-              href={personalInfo.resumeUrl}
-              download
-              className={`px-6 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm hover:scale-[1.01] ${
-                isDark
-                  ? 'bg-white text-zinc-950 hover:bg-zinc-200'
-                  : 'bg-[#2563EB] text-white hover:bg-[#1D4ED8]'
-              }`}
-            >
-              Download Resume
-              <FiDownload size={14} />
-            </a>
+
 
             {/* GitHub */}
             <a
