@@ -54,9 +54,9 @@ export interface CodingProfile {
 export const personalInfo = {
   name: 'SIMRAN SINGH',
   titles: [
-    'Engineering Student',
-    'Full Stack Developer',
-    'Problem Solver'
+    'an Engineering Student',
+    'a Full Stack Developer',
+    'a Problem Solver'
   ],
   bio: 'A passionate developer driven by engineering high-performance systems and clean user interfaces. Specializing in full-stack web architectures, core data structures, and optimized backend query designs.',
   oneSentence: 'I design and build premium web systems with a focus on algorithm efficiency, latency reduction, and clean code aesthetics.',

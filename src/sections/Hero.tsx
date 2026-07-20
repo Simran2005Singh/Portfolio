@@ -69,7 +69,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
               isDark ? 'text-zinc-400' : 'text-gray-500'
             }`}
           >
-            I am a <TypingAnimation words={personalInfo.titles} />
+            I am <TypingAnimation words={personalInfo.titles} />
           </motion.div>
 
           {/* One sentence bio */}
