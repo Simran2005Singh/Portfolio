@@ -133,10 +133,40 @@ export default function BackgroundCanvas({ isDark }: { isDark: boolean }) {
   }, [isDark]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-500"
-      style={{ mixBlendMode: isDark ? 'screen' : 'multiply' }}
-    />
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {/* Aurora Glow 1 */}
+      <div
+        className={`absolute w-[450px] h-[450px] md:w-[600px] md:h-[600px] rounded-full blur-[120px] md:blur-[150px] transition-all duration-1000 ${
+          isDark
+            ? 'bg-violet-600/10'
+            : 'bg-blue-200/20'
+        }`}
+        style={{
+          top: '-10%',
+          left: '-10%',
+          animation: 'floatBlob1 22s infinite alternate ease-in-out',
+        }}
+      />
+      {/* Aurora Glow 2 */}
+      <div
+        className={`absolute w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full blur-[140px] md:blur-[170px] transition-all duration-1000 ${
+          isDark
+            ? 'bg-blue-600/5'
+            : 'bg-indigo-100/20'
+        }`}
+        style={{
+          bottom: '-15%',
+          right: '-15%',
+          animation: 'floatBlob2 28s infinite alternate ease-in-out',
+        }}
+      />
+
+      {/* Connecting Particle Canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 transition-opacity duration-500 w-full h-full"
+        style={{ mixBlendMode: isDark ? 'screen' : 'multiply' }}
+      />
+    </div>
   );
 }
