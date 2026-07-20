@@ -54,7 +54,7 @@ export interface CodingProfile {
 export const personalInfo = {
   name: 'SIMRAN SINGH',
   titles: [
-    'Software Engineer',
+    'Engineering Student',
     'Full Stack Developer',
     'Problem Solver'
   ],
