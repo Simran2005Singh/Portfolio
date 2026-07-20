@@ -42,6 +42,11 @@ export interface Achievement {
   description: string;
 }
 
+export interface ProfileStat {
+  label: string;
+  value: string;
+}
+
 export interface CodingProfile {
   name: string;
   username: string;
@@ -49,6 +54,7 @@ export interface CodingProfile {
   rating?: string;
   link: string;
   icon: string;
+  stats?: ProfileStat[];
 }
 
 export const personalInfo = {
@@ -184,7 +190,12 @@ export const codingProfiles: CodingProfile[] = [
     solved: '269 Solved',
     rating: 'Rank 561,353',
     link: 'https://leetcode.com/u/simran_val/',
-    icon: 'SiLeetcode'
+    icon: 'SiLeetcode',
+    stats: [
+      { label: 'Submissions', value: '539' },
+      { label: 'Active Days', value: '183' },
+      { label: 'Max Streak', value: '71' }
+    ]
   },
   {
     name: 'GitHub',

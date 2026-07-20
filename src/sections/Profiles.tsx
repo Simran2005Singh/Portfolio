@@ -114,6 +114,30 @@ export default function Profiles({ isDark }: { isDark: boolean }) {
                     @{profile.username}
                   </p>
 
+                  {profile.stats && (
+                    <div className="grid grid-cols-3 gap-2 mb-4">
+                      {profile.stats.map((s) => (
+                        <div
+                          key={s.label}
+                          className={`p-2 rounded-2xl border text-center ${
+                            isDark ? 'border-zinc-800 bg-zinc-900/30' : 'border-gray-200 bg-gray-50'
+                          }`}
+                        >
+                          <span className={`text-[8px] uppercase tracking-wider block font-medium ${
+                            isDark ? 'text-zinc-500' : 'text-gray-400'
+                          }`}>
+                            {s.label}
+                          </span>
+                          <span className={`text-[11px] font-bold font-mono ${
+                            isDark ? 'text-zinc-200' : 'text-zinc-800'
+                          }`}>
+                            {s.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   <div className="flex gap-4 text-xs font-semibold pt-3 border-t dark:border-zinc-800 border-zinc-200">
                     <span className="flex items-center gap-1">
                       <FiCheckCircle className="text-emerald-500" size={12} /> {profile.solved}
