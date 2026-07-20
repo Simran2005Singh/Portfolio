@@ -11,6 +11,7 @@ import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import CustomCursor from './components/CustomCursor';
 import BackToTop from './components/BackToTop';
+import BackgroundCanvas from './components/BackgroundCanvas';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
@@ -53,6 +54,9 @@ export default function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-[#09090B] text-[#F8FAFC]' : 'bg-[#FFFFFF] text-[#111827]'}`}>
+      {/* Interactive connecting particles background */}
+      <BackgroundCanvas isDark={isDark} />
+
       {/* Custom interactive cursor */}
       <CustomCursor />
 
