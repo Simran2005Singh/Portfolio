@@ -3,6 +3,7 @@ import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 import { personalInfo } from '../data/portfolioData';
 import avatarImg from '../assets/developer_avatar.png';
+import TypingAnimation from '../components/TypingAnimation';
 
 export default function Hero({ isDark }: { isDark: boolean }) {
 
@@ -64,18 +65,11 @@ export default function Hero({ isDark }: { isDark: boolean }) {
           {/* Subtitles Stack */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col space-y-1 font-display"
+            className={`text-xl md:text-3xl font-medium tracking-tight font-display ${
+              isDark ? 'text-zinc-400' : 'text-gray-500'
+            }`}
           >
-            {personalInfo.titles.map((title) => (
-              <span
-                key={title}
-                className={`text-xl md:text-3xl font-medium tracking-tight ${
-                  isDark ? 'text-zinc-400' : 'text-gray-500'
-                }`}
-              >
-                {title}
-              </span>
-            ))}
+            I am a <TypingAnimation words={personalInfo.titles} />
           </motion.div>
 
           {/* One sentence bio */}
@@ -154,7 +148,9 @@ export default function Hero({ isDark }: { isDark: boolean }) {
             <div className="absolute inset-0 bg-accentPurple/5 rounded-[2.5rem] blur-2xl pointer-events-none" />
 
             {/* Main Picture Frame */}
-            <div
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               className={`w-full h-full rounded-[2rem] overflow-hidden border transition-all duration-500 hover:scale-[1.01] ${
                 isDark
                   ? 'border-zinc-800/80 bg-zinc-900/30'
@@ -169,7 +165,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
                 }`}
                 loading="eager"
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 

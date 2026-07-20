@@ -75,17 +75,17 @@ export default function About({ isDark }: { isDark: boolean }) {
           </motion.p>
 
           {/* Clean bullet specs list */}
-          <motion.div
-            variants={itemVariants}
-            className={`rounded-3xl border divide-y ${
+          <div
+            className={`rounded-3xl border divide-y overflow-hidden ${
               isDark
                 ? 'border-zinc-800 bg-[#18181B] divide-zinc-800'
                 : 'border-gray-200 bg-[#FFFFFF] divide-gray-200'
             }`}
           >
             {bullets.map((bullet) => (
-              <div
+              <motion.div
                 key={bullet.label}
+                variants={itemVariants}
                 className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-2 transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-zinc-800/40"
               >
                 <span className={`text-xs uppercase font-bold tracking-widest ${
@@ -99,9 +99,9 @@ export default function About({ isDark }: { isDark: boolean }) {
                   <FiArrowRight className="text-accentPurple opacity-50" size={13} />
                   {bullet.value}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
 
       </div>
